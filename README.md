@@ -1,4 +1,4 @@
-Generate bulk QR codes via a CSV file.
+# Generate bulk QR codes via a CSV file.
 
 1. Craete a .CSV(Comma Seperated Values) file
 2. Put **each string ina  new line** and make sure to add a comma at the end of the string line.
