@@ -13,22 +13,18 @@ import JSZip from 'jszip'
 interface Result {
   id: number;
   name: string;
-  // Add other properties as needed
 }
 
 const results: Result[] = [
   { id: 1, name: 'Example' },
-  // Add other objects as needed
 ];
 
 interface Error {
   message: string;
-  // Add other properties as needed
 }
 
 const error: Error = {
   message: 'An error occurred',
-  // Add other properties as needed
 };
 
 export default function QRifyUploader(): JSX.Element {
@@ -52,7 +48,6 @@ export default function QRifyUploader(): JSX.Element {
         const zip = new JSZip()
         const rows = results.data as string[][]
 
-        // Generate QR codes for each row
         for (let i = 0; i < rows.length; i++) {
           const [text] = rows[i]
           if (text) {
@@ -61,16 +56,14 @@ export default function QRifyUploader(): JSX.Element {
           }
         }
 
-        // Generate ZIP file
         const zipBlob = await zip.generateAsync({ type: 'blob' })
 
-        // Create a download link for the ZIP file
         const link = document.createElement('a')
         link.href = URL.createObjectURL(zipBlob)
         link.download = 'QR_Codes.zip'
         link.click()
 
-        console.log('QR codes have been zipped and downloaded!')
+        alert('QR Codes generated successfully!')
       },
       error: (error) => {
         alert(`Failed to parse CSV: ${error.message}`)
