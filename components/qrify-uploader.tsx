@@ -72,36 +72,39 @@ export default function QRifyUploader(): JSX.Element {
   }
 
   return (
-    <Card className="w-full max-w-md bg-gray-800 text-gray-100">
-      <CardHeader>
-        <CardTitle>Upload CSV & Generate QR Codes</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="grid w-full items-center gap-4">
-          <div className="flex flex-col space-y-1.5">
-            <Label htmlFor="csv-upload">Upload CSV</Label>
-            <Input 
-              id="csv-upload" 
-              type="file" 
-              accept=".csv" 
-              onChange={handleFileChange}
-              className="bg-gray-700 text-gray-100 file:bg-gray-600 file:text-gray-100 file:border-gray-500"
-            />
+    <div>
+      <Card className="w-full max-w-md bg-gray-800 text-gray-100">
+        <CardHeader>
+          <CardTitle>Upload CSV & Generate QR Codes</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid w-full items-center gap-4">
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="csv-upload">Upload CSV</Label>
+              <Input 
+                id="csv-upload" 
+                type="file" 
+                accept=".csv" 
+                onChange={handleFileChange}
+                className="bg-gray-700 text-gray-100 file:bg-gray-600 file:text-gray-100 file:border-gray-500"
+              />
+            </div>
           </div>
-        </div>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <p className="text-sm text-gray-400">
-          {file ? `Selected: ${file.name}` : 'No file selected'}
-        </p>
-        <Button 
-          onClick={handleDownload} 
-          disabled={!file}
-          className="bg-blue-600 hover:bg-blue-700"
-        >
-          <Download className="mr-2 h-4 w-4" /> Download QR Codes
-        </Button>
-      </CardFooter>
-    </Card>
+        </CardContent>
+        <CardFooter className="flex justify-between">
+          <p className="text-sm text-gray-400">
+            {file ? `Selected: ${file.name}` : 'No file selected'}
+          </p>
+          <Button 
+            onClick={handleDownload} 
+            disabled={!file}
+            className="bg-blue-600 hover:bg-blue-700"
+          >
+            <Download className="mr-2 h-4 w-4" /> Download QR Codes
+          </Button>
+        </CardFooter>
+      </Card>
+
+    </div>
   )
 }
