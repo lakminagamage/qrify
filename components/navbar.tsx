@@ -11,7 +11,7 @@ export function Navbar() {
         </Link>
         <div className="flex md:order-2">
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/lakminagamage/qrify" target="_blank" rel="noopener noreferrer">
               <Github className="h-6 w-6" />
               <span className="sr-only">GitHub repository</span>
             </Link>
