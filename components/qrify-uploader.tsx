@@ -52,7 +52,7 @@ export default function QRifyUploader(): JSX.Element {
           const [text] = rows[i]
           if (text) {
             const qrCodeDataUrl = await QRCode.toDataURL(text, { errorCorrectionLevel: 'H' })
-            zip.file(`QRCode_${i + 1}.png`, qrCodeDataUrl.split(',')[1], { base64: true })
+            zip.file(`${text}.png`, qrCodeDataUrl.split(',')[1], { base64: true })
           }
         }
 
