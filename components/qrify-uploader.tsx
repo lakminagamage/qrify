@@ -43,12 +43,12 @@ export default function QRifyUploader(): JSX.Element {
   const handleDownload = async (): Promise<void> => {
     if (!file) return
 
-    Papa.parse<string[]>(file, {
+    Papa.parse<{ qr_name: string; qr_value: string }>(file, {
       header: true,
       skipEmptyLines: true,
       complete: async (results) => {
         const zip = new JSZip()
-        const rows = results.data as { qr_name: string; qr_value: string }[]
+        const rows = results.data
 
         for (let i = 0; i < rows.length; i++) {
           const { qr_name, qr_value } = rows[i]
